@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	@extern('head')
+	<link rel="stylesheet" type="text/css" href="views/static/css/detalle.css">
+</head>
+<body>
+	<!-- HEADER -->
+	@extern('header')
+
+	<!-- MAIN -->
+	<main>
+		<section class="section-detalle">
+			<!-- BOTON REGRESAR -->
+			<a href="{{BTN_VOLVER_URL}}">
+				<img src="views/static/img/system/arrow_back.svg" width="30px">
+			</a>
+			
+			<div class="container-detalle">
+				<h1 id="nombre_estacion"></h1>
+				<p id="ubi_estacion"></p>	
+			</div>
+		</section>
+	</main>
+
+	<!-- FOOTER -->
+	@extern('footer')	
+	<script src="views/static/js/detalle.js{{PROYECT_MODE}}"></script>
+</body>
+</html>

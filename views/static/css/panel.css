@@ -1,0 +1,50 @@
+.section-station{
+	padding: 1rem 2rem
+}
+
+.container-estaciones{
+	margin: .5rem;
+	display: flex;
+	flex-wrap: wrap;
+	gap:1rem;
+}
+
+.card-station{
+	padding: 1rem;
+	border: 1px solid;
+	width: 49%;
+}
+.card-station:hover{
+	transform: scale(1.05);
+	background-color: #f1f1f1;
+	transition: .2s all;
+}
+
+.card-station p:nth-child(1){
+	font-weight: bold;
+	font-size: 1.5rem
+}
+
+.card-station div{	
+	display: flex;
+	align-items: center;
+	justify-content: flex-end;
+}
+
+.card-station img{
+	width: 24px;
+}
+
+
+/*
+	RESPONSIVE MOBILE
+*/
+@media(max-width: 600px){
+	.section-station{
+		padding: 1rem
+	}
+
+	.card-station{
+		width: 100%;
+	}
+}

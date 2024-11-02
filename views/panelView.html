@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	@extern('head')
+	<link rel="stylesheet" type="text/css" href="views/static/css/panel.css{{PROYECT_MODE}}">
+</head>
+<body>
+	<!-- HEADER -->
+	@extern('header')
+
+	<!-- TEMPLATE CARD -->
+	<template id="tpl_card">
+		<div class="card-station">
+			<p class="card-station-name"></p>
+			<p class="card-station-ubi"></p>
+			<div>
+				<span class="card-station-views"></span>
+				<img src="views/static/img/system/views.svg" alt="visitas">
+			</div>
+		</div>
+	</template>
+
+	<!-- MAIN -->
+	<main>
+		<section class="section-station">
+			<h2>Estaciones</h2>
+			<div class="container-estaciones" id="estaciones"></div>	
+		</section>
+	</main>
+
+	<!-- FOOTER -->
+	@extern('footer')
+	<script src="views/static/js/panel.js{{PROYECT_MODE}}"></script>
+</body>
+</html>

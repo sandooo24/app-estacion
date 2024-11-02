@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	@extern('head')
+	<link rel="stylesheet" type="text/css" href="views/static/css/landing.css{{PROYECT_MODE}}">
+</head>
+<body>
+	<!-- HEADER -->
+	@extern('header')
+
+	<!-- MAIN -->
+	<main>
+		<section class="section-inicio">
+			<div class="section-title">
+				<p>
+					App Estación
+				</p>
+				<span id="span_desc">Monitor de estaciones meteorologicas</span>
+				<div style="text-align: center;">
+					<a class="btn" href="panel">
+						Ver Estaciones
+					</a>
+				</div>
+			</div>
+		</section>
+	</main>
+
+	<!-- FOOTER -->
+	@extern('footer')
+	<script type="text/javascript">
+
+		if (window.innerWidth<700) {
+			// Espera a que la animación de tipeo termine
+		    span_desc.addEventListener('animationend', function() {
+		        span_desc.style.whiteSpace = 'normal'; // Cambiar a normal para autoajuste
+		        span_desc.style.width = 'auto'; // Permitir que el ancho se ajuste automáticamente
+		    	span_desc.style.border='none'
+		    });	
+		}
+		
+	</script>
+</body>
+</html>
