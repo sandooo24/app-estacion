@@ -2,7 +2,8 @@
 <html lang="es">
 <head>
 	@extern('head')
-	<link rel="stylesheet" type="text/css" href="views/static/css/detalle.css">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+	<link rel="stylesheet" type="text/css" href="views/static/css/detalle.css{{PROYECT_MODE}}">
 </head>
 <body>
 	<!-- HEADER -->
@@ -17,14 +18,187 @@
 			</a>
 			
 			<div class="container-detalle">
-				<h1 id="nombre_estacion"></h1>
-				<p id="ubi_estacion"></p>	
+				<div class="container-detalle-title">
+					<h1 id="nombre_estacion"></h1>
+					<p><!-- UBICACION -->
+						<i class="bi bi-geo-alt-fill" style="color: red"></i> 
+						<span id="ubi_estacion"></span>
+					</p>	
+					<p><!-- FECHA -->
+						<i class="bi bi-calendar-event"></i> 
+						<span id="fecha_estacion"></span>
+					</p>
+				</div>
+	
+				<div class="container-detalle-info">
+					<!-- SECCION TEMPERATURA -->
+					<div class="container-data container-temperatura">
+						<div class="container-info">
+							<!-- TEMPERATURA -->
+							<div class="info-clima">
+								<h4>
+									<i class="bi bi-thermometer-half"></i>
+									Temperatura
+								</h4>
+								<h1 id="col_temp">12.2ºC</h1>
+								<div>
+									<i class="bi bi-caret-down-fill"></i>Máxima<br>
+									<span id="col_temp_max">ºC</span>
+								</div>
+								<div>
+									<i class="bi bi-caret-up-fill"></i>Mínima<br>
+									<span id="col_temp_min">ºC</span>
+								</div>
+							</div>
+							<!-- SENSACION -->
+							<div class="info-clima">
+								<h4>
+									<i class="bi bi-person-standing"></i>
+									Senciación
+								</h4>
+								<h1 id="col_senc">12.2ºC</h1>
+								<div>
+									<i class="bi bi-caret-down-fill"></i>Máxima<br>
+									<span id="col_senc_max">ºC</span>
+								</div>
+								<div>
+									<i class="bi bi-caret-up-fill"></i>Mínima<br>
+									<span id="col_senc_min">ºC</span>
+								</div>
+							</div>
+						</div>
+						<div class="container-grafico">					
+							<canvas id="grafico_temperatura"></canvas>
+						</div>
+					</div>
+
+					<!-- SECCION FUEGO -->
+					<div class="container-data container-fuego">
+						<div class="container-info">
+							<div class="info-clima2">
+								<h3>
+									<i class="bi bi-fire" style="color: red"></i>
+									Fuego
+								</h3>
+								<div>
+									<p>
+										FFMC <br> <span id="col_fueg_ffmc"></span>	
+									</p>
+									<p>
+										DMC <br> <span id="col_fueg_dmc"></span>
+									</p>
+									<p>
+										DC <br> <span id="col_fueg_dc"></span>	
+									</p>
+								</div>
+								<div>
+									<p>
+										ISI <br> <span id="col_fueg_isi"></span>	
+									</p>
+									<p>
+										BUI <br> <span id="col_fueg_bui"></span>
+									</p>
+									<p>
+										FWI <br> <span id="col_fueg_fwi"></span>	
+									</p>
+								</div>
+							</div>
+						</div>
+						<div class="container-grafico">					
+							<canvas id="grafico_fuego"></canvas>
+						</div>
+					</div>		 
+
+					<!-- SECCION HUMEDAD -->
+					<div class="container-data container-humedad">
+						<div class="container-info">
+							<div class="info-clima2">
+								<h3>
+									<i class="bi bi-droplet-fill" style="color: deepskyblue"></i>
+									humedad
+								</h3>
+								<h1 id="col_hume"></h1>
+							</div>
+						</div>
+						<div class="container-grafico">					
+							<canvas id="grafico_humedad"></canvas>
+						</div>
+					</div>	
+
+					<!-- SECCION PRESION -->
+					<div class="container-data container-presion">
+						<div class="container-info">
+							<div class="info-clima2">
+								<h3>
+									<i class="bi bi-arrow-down-circle-fill" style="color: green"></i>
+									presion
+								</h3>
+								<h1 id="col_pres"></h1>
+							</div>
+						</div>
+						<div class="container-grafico">					
+							<canvas id="grafico_presion"></canvas>
+						</div>
+					</div>					
+						
+					<!-- SECCION VIENTO -->
+					<div class="container-data container-viento">
+						<div class="container-info">
+							<!-- VIENTO -->
+							<div class="info-clima">
+								<h4>
+									<i class="bi bi-wind" style="color: grey"></i>
+									Viento
+								</h4>
+								<h1 id="col_vien">12.2ºC</h1>
+								<div>
+									<i class="bi bi-caret-down-fill"></i>Máxima<br>
+									<span id="col_vien_max">ºC</span>
+								</div>
+							</div>
+							<!-- DIRECCION -->
+							<div style="font-size: 1.2rem">
+								<i class="bi bi-compass" style="color: red"></i>
+								<span id="col_vien_dir"></span>
+							</div>
+						</div>
+						<div class="container-grafico">					
+							<canvas id="grafico_viento"></canvas>
+						</div>
+					</div>
+
+					<!-- OPCIONES -->
+					<div class="options">
+						<div class="box-option temperatura" id="btn_temperatura">
+							<i class="bi bi-thermometer-half"></i>
+							<span id="col_temp_btn">21.2º</span>
+						</div>
+						<div class="box-option fuego" id="btn_fuego">
+							<i class="bi bi-fire"></i>
+							<span id="col_fueg_btn">muy bajo</span>
+						</div>
+						<div class="box-option humedad" id="btn_humedad">
+							<i class="bi bi-droplet-fill"></i>
+							<span id="col_hume_btn">23%</span>
+						</div>
+						<div class="box-option presion" id="btn_presion">
+							<i class="bi bi-arrow-down-circle-fill"></i>
+							<span id="col_pres_btn">0hPa</span>
+						</div>
+						<div class="box-option viento" id="btn_viento">
+							<i class="bi bi-wind"></i>
+							<span id="col_vien_btn">norte</span>
+							<br>
+						</div>
+					</div>	
+				</div>
 			</div>
 		</section>
 	</main>
 
 	<!-- FOOTER -->
 	@extern('footer')	
+	<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 	<script src="views/static/js/detalle.js{{PROYECT_MODE}}"></script>
 </body>
 </html>

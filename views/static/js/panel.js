@@ -1,5 +1,6 @@
 
 loadEstaciones().then( data => {
+	console.log(data)
 	data.forEach( item => {
 		cardEstacion(item)
 	})
@@ -25,7 +26,15 @@ function cardEstacion(info){
 	clon.querySelector(".card-station-ubi").innerHTML= info.ubicacion
 	clon.querySelector(".card-station-views").innerHTML = info.visitas
 	clon.querySelector(".card-station-name").innerHTML = info.apodo
-	
+
+	// si una estacion lleva mas de un dia inactiva
+	if (info.dias_inactivo>0) {
+		const span = document.createElement('span')
+		span.classList.add('card-state')
+		span.innerHTML='Inactiva'
+		clon.querySelector('.card-station').appendChild(span)
+	}
+
 	// agrega al clon al documento
 	estaciones.appendChild(clon)
 }

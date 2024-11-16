@@ -5,10 +5,171 @@ main{
 .section-detalle{
 	padding: 1rem;
 	box-shadow: 0px 0px 2px 0px rgba(0, 0, 0, .5);
-	height: 100%;
+	/*height: 100%;*/
 }
 
 .container-detalle{
 	padding: 0 2rem;
+}
+
+.container-detalle-info{
+	display: flex;
+	flex-wrap: wrap;
+}
+
+.container-data{
+	width: 60%
+}
+/*
+	TITULO
+*/
+.container-detalle-title{
+	text-align: center;
+	margin-bottom: 1rem
+}
+
+
+/*
+	GRAFICO
+*/
+.grafico{
+}
+
+/*
+	OPCIONES
+*/
+.options{
+	display: flex;
+	gap: 1rem;
+	flex-wrap: wrap;
+	flex: 1;
+	margin: 1rem
+}
+
+.box-option{
+	user-select: none;
+	font-size: 3rem;
+	padding: 1rem;
+	border: 1px solid;
+	display: inline-block;
+	height: fit-content;
+}
+
+
+.box-option:hover{
+	transform: scale(1.1);
+	color: #fff;
+	transition: .2s all;
+}
+
+.temperatura{ color: orange; }
+.temperatura:hover{ background-color: orange; }
+.fuego{ color: red; }
+.fuego:hover{ background-color: red; }
+.humedad{ color: deepskyblue; }
+.humedad:hover{ background-color: deepskyblue; }
+.presion{ color: green; }
+.presion:hover{ background-color: green; }
+.viento{ color: grey; }
+.viento:hover{ background-color: grey; }
+
+.box-option span{
+	font-size: 2rem;
+	color: #000
+}
+
+.box-option i, .box-option span{ vertical-align: middle; }/* ALINEA VERTICALMENTE */
+
+.container-info{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-wrap: wrap;
+	gap:2rem;
+}
+
+/*
+	SECCION TEMPERATURA
+*/
+.container-info .info-clima:nth-child(1) h4 i {	color: orange } /* TEMPERATURA */
+.container-info .info-clima:nth-child(2) h4 i {	color: deepskyblue } /* SENSACION */
+
+.info-clima{
+	display: grid;
+	justify-content: center;
+	grid: 
+	"titulo titulo" auto
+	"temp temp" auto
+	"max min" auto
+	/ auto auto;
 	text-align: center;
 }
+
+.info-clima h4{
+	grid-area: titulo;
+}
+
+.info-clima h1{
+	grid-area: temp;
+	font-size: 3rem
+}
+
+/*MAXIMO*/
+.info-clima > div:nth-of-type(1){ grid-area: max; }
+.info-clima > div:nth-of-type(1) i{ color: red }
+
+/*MINIMO*/
+.info-clima > div:nth-of-type(2){ grid-area: min; }
+.info-clima > div:nth-of-type(2) i{	color: green }
+
+/*
+	SECCION FUEGO
+*/
+.info-clima2{
+	display: flex;
+	gap: 1rem;
+	flex-wrap: wrap;
+	justify-content: space-around;
+	text-align: center;
+	color: black;
+	width: 100%;
+}
+
+.info-clima2 h3{
+	width: 100%;
+	text-transform: capitalize;
+}
+
+.info-clima2 h1{
+	font-size: 3rem
+}
+
+.container-temperatura,.container-fuego,.container-humedad,.container-presion,.container-viento{
+	display: none;
+}
+
+@media(max-width: 1024px){
+	.box-option{
+		font-size: 2rem
+	}
+}
+
+@media(max-width: 1000px){
+	.container-detalle{
+		padding: 0 ;
+	}
+
+	.container-detalle-info{
+		flex-direction: column-reverse;
+	}
+	.container-data{ width: 100% }
+	
+	.box-option{
+		padding: .5rem
+	}
+
+	.box-option,.box-option span{
+		font-size: 1rem
+	}
+}
+

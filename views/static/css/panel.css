@@ -13,6 +13,7 @@
 	padding: 1rem;
 	border: 1px solid;
 	width: 49%;
+	position: relative;
 }
 .card-station:hover{
 	transform: scale(1.05);
@@ -35,6 +36,16 @@
 	width: 24px;
 }
 
+
+.card-state{
+	position: absolute;
+	text-transform: capitalize;
+	bottom: .5rem;
+	padding: 0 1rem;
+	left: 0;
+	background-color: red;
+	color: #fff;
+}
 
 /*
 	RESPONSIVE MOBILE
